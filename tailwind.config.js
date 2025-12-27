@@ -9,11 +9,11 @@ module.exports = {
     extend: {
       colors: {
         elden: {
-          bg: '#050505',        // Noir abyssal
-          gold: '#C6A96E',      // Or terni
-          pale: '#EAE6D8',      // Ossement
-          accent: '#FFD700',    // Or divin (lumière)
-          fog: '#1A1A1A',       // Gris brume
+          bg: '#050505',        
+          gold: '#C6A96E',      
+          pale: '#EAE6D8',     
+          accent: '#FFD700',    
+          fog: '#1A1A1A',       
         },
       },
       fontFamily: {
