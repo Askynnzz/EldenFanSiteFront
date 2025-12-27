@@ -19,12 +19,10 @@ const wrap = (min, max, v) => {
 };
 
 // --- CONFIGURATION ---
-// ⚠️ PUT YOUR FILE IN THE /public FOLDER
-// Change type to 'image' if you want to use a static image instead.
 const GLOBAL_BG = {
   type: 'image', // 'video' or 'image'
-  src: '/background.jpg', // e.g. '/background.mp4' or '/my-wallpaper.jpg'
-  opacity: 1 // Adjust how visible the background is
+  src: '/background.jpg', 
+  opacity: 1 
 };
 
 // --- DATA ---
@@ -33,7 +31,7 @@ const REVIEWS = [
   "IGN: 10/10 - MASTERPIECE", "GAMESPOT: 10/10 - ESSENTIAL", "EDGE: GOLD AWARD", "METACRITIC: 96 - UNIVERSAL ACCLAIM", "THE GUARDIAN: 5/5", "GAME INFORMER: 10/10"
 ];
 
-// RESTORED USER IMAGES
+
 const DEMIGODS = [
   { id: 1, name: "Malenia", title: "Blade of Miquella", image: "https://esport-facts.com/wp-content/uploads/2024/06/Elden-Ring-Hardest-Bosses-Header-1200x675.webp", color: "#C55959" },
   { id: 2, name: "Radahn", title: "Starscourge", image: "https://jrpgfr.net/wp-content/uploads/2022/04/Starscourge-Radahn-1024x512.jpeg", color: "#596BC5" },
@@ -73,7 +71,6 @@ const CLASSES = [
 
 // --- COMPONENTS ---
 
-// 1. GLOBAL BACKGROUND (NEW)
 const GlobalBackground = () => {
   return (
     <div className="fixed inset-0 z-[-10] w-full h-full bg-[#050505]">
@@ -272,7 +269,7 @@ export default function HomePage() {
   return (
     <div className="relative w-full min-h-screen">
       
-      {/* 0. GLOBAL LAYERS */}
+      {/* GLOBAL LAYERS */}
       <GlobalBackground />
       <EmberSystem />
 
@@ -284,7 +281,6 @@ export default function HomePage() {
 
       {/* 1. HERO */}
       <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center">
-        {/* We keep the hero's specific parallax video, but blend it */}
         <motion.div className="absolute inset-0 z-0" style={{ y: yBackground, scale: 1.1 }}>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/60 to-[#050505] z-10" />
           <video autoPlay loop muted playsInline className="w-full h-full object-cover grayscale-[30%] brightness-[0.4]">
@@ -292,21 +288,10 @@ export default function HomePage() {
           </video>
         </motion.div>
         <div className="z-20 text-center px-4 relative">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }} 
-          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} 
-          transition={{ duration: 1.5 }}
-        >
-          {/* Utilisation de font-mantinia ici */}
-          <h2 className="text-[#C5A059] font-mantinia text-sm md:text-lg tracking-[0.5em] mb-6 uppercase opacity-90">
-            The Golden Order is Broken
-          </h2>
-          
-          {/* Et ici */}
-          <h1 className="text-6xl md:text-[10rem] leading-[0.85] font-mantinia text-[#e5e5e5] tracking-tighter mb-8 drop-shadow-2xl">
-            SHATTERED<br/>Elden Ring
-          </h1>
-        </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1.5 }}>
+            <h2 className="text-[#C5A059] font-serif text-sm md:text-lg tracking-[0.5em] mb-6 uppercase opacity-90">The Golden Order is Broken</h2>
+            <h1 className="text-6xl md:text-[10rem] leading-[0.85] font-serif text-[#e5e5e5] tracking-tighter mb-8 drop-shadow-2xl">SHATTERED<br/>Elden Ring</h1>
+          </motion.div>
           <MagneticButton className="inline-block mt-8">
             <button onClick={playClick} onMouseEnter={playHover} className="group relative px-10 py-4 overflow-hidden border border-[#C5A059]/40 bg-black/20 backdrop-blur-sm hover:border-[#C5A059] transition-all duration-500">
               <span className="relative z-10 text-[#C5A059] font-serif tracking-[0.2em] text-sm group-hover:text-white transition-colors">RESTORE THE ORDER</span>
@@ -336,7 +321,6 @@ export default function HomePage() {
 
       {/* 3. LORE */}
       <div className="relative py-40 overflow-hidden" ref={loreRef}>
-        {/* Transparent background so global bg shows through */}
         <SectionTitle subtitle="The History" title="The Shattering" />
 
         <div className="max-w-5xl mx-auto px-6 relative">
@@ -486,17 +470,14 @@ export default function HomePage() {
       {/* FOOTER */}
 {/* FOOTER */}
       <footer className="bg-black py-20 border-t border-[#333] relative overflow-hidden flex flex-col items-center px-4 text-center">
-         {/* Effet de fond */}
          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C5A059]/10 to-transparent opacity-50" />
          
-         {/* Icône et Titre */}
          <Crown className="w-16 h-16 text-[#333] mb-8 relative z-10" />
          <h1 className="text-4xl font-serif text-[#333] mb-2 select-none relative z-10">Elden Ring</h1>
          <span className="text-[#444] text-xs font-mono uppercase tracking-[0.3em] mb-12 relative z-10">
             Unofficial Fan Tribute
          </span>
 
-         {/* Liens externes (Optionnels) */}
          <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-[#666] font-mono text-xs uppercase tracking-widest mb-12 relative z-10">
             <a href="https://en.bandainamcoent.eu/elden-ring/elden-ring" target="_blank" rel="noreferrer" className="hover:text-[#C5A059] transition-colors">Bandai Namco</a>
             <span className="text-[#333] hidden md:inline">/</span>
@@ -515,7 +496,6 @@ export default function HomePage() {
                ELDEN RING™ & ©Bandai Namco Entertainment Inc. / ©2022 FromSoftware, Inc.
             </p>
             
-            {/* TA SIGNATURE */}
             <p className="text-[#C5A059]/40 text-xs font-mono pt-8">
                Designed & Developed by Yassine Berrichi
             </p>
